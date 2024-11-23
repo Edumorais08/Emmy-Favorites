@@ -1,0 +1,32 @@
+{% extends 'cabecalho.html' %}
+
+{% block content %}
+        <section class="apresentacao__conteudo">
+            <h1 class="apresentacao__conteudo__titulo">Emmys</h1>
+            <p class="apresentacao__conteudo__texto"> The Emmy Awards, or simply Emmy, is the largest and most prestigious award given to Series and
+                television professionals. It is presented at several annual events held throughout the year,
+                each honoring one of the various sectors of the television industry. The two events that receive
+                The biggest media coverage is the Primetime Emmys, where awards such as "Best Drama Series" take place, and the Daytime Emmy Awards
+                that recognize outstanding work in American primetime programming and entertainment
+                daytime, respectively. There are also specific awards, with their own ceremonies, for
+                programming aimed at children and families (Children's & Family Emmy Awards), sports (Sports Emmys),
+                journalism (News and Documentary Emmys), technology (Technology and Engineering Emmys), regional programming
+                (Regional Emmys) and school and university audiovisual production. Additionally, the International Emmy Awards are
+                granted to television programming produced and initially shown outside the United States, the award for which
+                usually occurs at the end of the year.</p>
+            <img src="{{ url_for('static', filename='img/logoEmmy.png') }}" alt="logo do emmy" class="apresentacao__conteudo__imagem">
+            <p class="apresentacao__conteudo__texto"> The name "Emmy" was used as a feminization of "immy", a nickname
+                used for picture tubes that were easily found in early television cameras. The Statuette
+                shows a winged woman holding an atom. The Emmy is considered one of the four biggest entertainment american awards
+                , the others being the Grammy (music), the Oscar (cinema) and the Tony (theater).</p>
+            <img src="{{ url_for('static', filename='img/estatuetas.png') }}" alt="estatuetas do emmy" class="apresentacao__conteudo__imagem">
+            <p class="apresentacao__conteudo__texto"> There are three related but separate organizations present
+                at the Emmy Awards: the Academy of Television Arts & Sciences (ATAS), the National Academy of Arts &
+                Television Sciences (NATAS) and the International Academy of Television Arts and Sciences (IATAS). THE
+                ATAS first awarded the Emmy in 1949 to honor programs produced in the Los Angeles area.
+                Angeles before becoming a national event in the 1950s to honor programs aired in
+                the entire country. Over the next two decades, ATAS, NATAS, and IATAS expanded the award to honor
+                other areas of the TV industry, with each organization responsible for managing a specific set
+                of Emmy competitions.</p>
+        </section>
+{% endblock %}

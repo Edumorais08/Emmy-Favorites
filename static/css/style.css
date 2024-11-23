@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap');
+
+:root {
+    --cor-primaria: #1B1A17;
+    --cor-secundaria: #E6D5B8;
+    --cor-terciaria: #F0A500;
+
+    --fonte-primaria: 'Open Sans', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    box-sizing: border-box;
+    background-color: var(--cor-primaria);
+    color: var(--cor-secundaria);
+}
+
+header {
+    position: relative;
+    transition: height 0.3s ease;
+}
+
+#menu-toggle,
+.cabecalho__link{
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    color: var(--cor-terciaria);
+    text-decoration: none;
+}
+
+.lista__paginas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    list-style-type: none;
+}
+
+.cabecalho__menu__link {
+    color: var(--cor-primaria);
+    font-family: var(--fonte-primaria);
+    font-size: 0.6rem;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.1rem;
+    background-color: var(--cor-secundaria);
+    border: 1px solid var(--cor-secundaria);
+    border-radius: 20px;
+}
+
+#navbar ul li a:hover {
+    background-color: var(--cor-terciaria);
+    border-radius: 4px;
+    padding: 5px;
+}
+
+#navbar.open {
+    max-height: none; /* Altura máxima do menu aberto */
+    overflow: visible;
+    transition: max-height 0.3s ease;
+}
+
+.hidden {
+    display: none;
+}
+
+.apresentacao {
+    padding: 3% 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    transition: margin-top 0.3s ease;
+}
+
+.apresentacao__conteudo {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+}
+
+.apresentacao__conteudo__titulo {
+    font-family: var(--fonte-primaria);
+    font-size: 3rem;
+    color: white;
+}
+
+.apresentacao__conteudo__texto {
+    font-family: var(--fonte-primaria);
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.apresentacao__conteudo__imagem {
+    width: 60%;
+    height: 45%;
+}

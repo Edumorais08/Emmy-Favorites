@@ -1,0 +1,227 @@
+{% extends 'cabecalho.html' %}
+
+{% block title %} {{ category }} - {{ year }} {% endblock %}
+
+{% block style %} href="{{ url_for('static', filename='css/style2.css') }}" {% endblock %}
+
+{% block content %}
+  {% if category== "limited series" %}
+  <h1 class="apresentacao__titulo">Emmy {{ category.capitalize() }} winners - {{ year }}</h1>
+  {% else %}
+  <h1 class="apresentacao__titulo">Emmy {{ category.capitalize() }} Series Winners - {{ year }}</h1>
+  {% endif %}
+  <section class="apresentacao__secao">
+    {% if category== "limited series" %}
+    <a class="apresentacao__subtitulo" href="{{ url_for('index') }}"><h2>Outstanding {{ category }} or Movie</h2></a>
+    {% else %}
+    <a class="apresentacao__subtitulo" href="{{ url_for('index') }}"><h2>Outstanding {{ category.capitalize() }} Series </h2></a>
+    {% endif %}
+    <div class="apresentacao__caixa">
+      {% for item in data %}
+      {% if ("Series" in item.subcategory) and (item.year == year) %}
+      <div class="apresentacao__caixa__link" href="{{ url_for('index') }}">
+        {% if item.is_winner == "Winner" %}
+        <p class="apresentacao__caixa__link__numero winner nominee">{{ item.is_winner }}</p>
+        <a href="{{ url_for('index') }}">
+          <img src="{{ item.img }}" class="apresentacao__caixa__link__imagem3 winner__img" alt="poster ">
+        </a>
+        {% else %}
+        <p class="apresentacao__caixa__link__numero nominee">{{ item.is_winner }}</p>
+        <a href="{{ url_for('index') }}">
+          <img src="{{ item.img }}" class="apresentacao__caixa__link__imagem3" alt="poster ">
+        </a>
+        {% endif %}
+
+        <p class="apresentacao__caixa__link__titulo">{{ item.name }}</p>
+        <p class="apresentacao__caixa__link__subtitulo">{{ item.channel }}</p>
+      </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="apresentacao__secao">
+    {% if category== "limited series" %}
+    <a class="apresentacao__subtitulo" href="{{ url_for('index') }}"><h2>Outstanding lead Actress in a {{ category }} or Movie</h2></a>
+    {% else %}
+    <a class="apresentacao__subtitulo" href="{{ url_for('index') }}"><h2>Outstanding Lead Actress in a {{ category.capitalize() }} Series </h2></a>
+    {% endif %}
+    <div class="apresentacao__caixa caixa__img">
+      {% for item in data %}
+      {% if ("Lead Actress" in item.subcategory) and (item.year == year) %}
+      <div class="apresentacao__caixa__link" href="{{ url_for('index') }}">
+        {% if item.is_winner == "Winner" %}
+        <p class="apresentacao__caixa__link__numero winner nominee">{{ item.is_winner }}</p>
+        <a href="{{ url_for('index') }}">
+          <img src="{{ item.img }}" class="apresentacao__caixa__link__imagem winner__img" alt="poster ">
+        </a>
+        {% else %}
+        <p class="apresentacao__caixa__link__numero nominee">{{ item.is_winner }}</p>
+        <a href="{{ url_for('index') }}">
+          <img src="{{ item.img }}" class="apresentacao__caixa__link__imagem" alt="poster ">
+        </a>
+        {% endif %}
+
+        <p class="apresentacao__caixa__link__titulo">{{ item.name }}</p>
+        <p class="apresentacao__caixa__link__subtitulo">{{ item.character }}</p>
+        <p class="apresentacao__caixa__link__subtitulo">in {{ item.series }}</p>
+      </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="apresentacao__secao">
+    {% if category== "limited series" %}
+    <a class="apresentacao__subtitulo" href="{{ url_for('index') }}"><h2>Outstanding lead actor in a {{ category }} or Movie</h2></a>
+    {% else %}
+    <a class="apresentacao__subtitulo" href="{{ url_for('index') }}"><h2>Outstanding Lead Actor in a {{ category.capitalize() }} Series </h2></a>
+    {% endif %}
+    <div class="apresentacao__caixa caixa__img">
+      {% for item in data %}
+      {% if ("Lead Actor" in item.subcategory) and (item.year == year) %}
+      <div class="apresentacao__caixa__link" href="{{ url_for('index') }}">
+        {% if item.is_winner == "Winner" %}
+        <p class="apresentacao__caixa__link__numero winner nominee">{{ item.is_winner }}</p>
+        <a href="{{ url_for('index') }}">
+          <img src="{{ item.img }}" class="apresentacao__caixa__link__imagem winner__img" alt="poster ">
+        </a>
+        {% else %}
+        <p class="apresentacao__caixa__link__numero nominee">{{ item.is_winner }}</p>
+        <a href="{{ url_for('index') }}">
+          <img src="{{ item.img }}" class="apresentacao__caixa__link__imagem" alt="poster ">
+        </a>
+        {% endif %}
+
+        <p class="apresentacao__caixa__link__titulo">{{ item.name }}</p>
+        <p class="apresentacao__caixa__link__subtitulo">{{ item.character }}</p>
+        <p class="apresentacao__caixa__link__subtitulo">in {{ item.series }}</p>
+      </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="apresentacao__secao">
+    {% if category== "limited series" %}
+    <a class="apresentacao__subtitulo" href="{{ url_for('index') }}"><h2>Outstanding supporting actress in a {{ category }} or Movie</h2></a>
+    {% else %}
+    <a class="apresentacao__subtitulo" href="{{ url_for('index') }}"><h2>Outstanding Supporting Actress in a {{ category.capitalize() }} Series </h2></a>
+    {% endif %}
+    <div class="apresentacao__caixa caixa__img">
+      {% for item in data %}
+      {% if ("Supporting Actress" in item.subcategory) and (item.year == year) %}
+      <div class="apresentacao__caixa__link" href="{{ url_for('index') }}">
+        {% if item.is_winner == "Winner" %}
+        <p class="apresentacao__caixa__link__numero winner nominee">{{ item.is_winner }}</p>
+        <a href="{{ url_for('index') }}">
+          <img src="{{ item.img }}" class="apresentacao__caixa__link__imagem winner__img" alt="poster ">
+        </a>
+        {% else %}
+        <p class="apresentacao__caixa__link__numero nominee">{{ item.is_winner }}</p>
+        <a href="{{ url_for('index') }}">
+          <img src="{{ item.img }}" class="apresentacao__caixa__link__imagem" alt="poster ">
+        </a>
+        {% endif %}
+
+        <p class="apresentacao__caixa__link__titulo">{{ item.name }}</p>
+        <p class="apresentacao__caixa__link__subtitulo">{{ item.character }}</p>
+        <p class="apresentacao__caixa__link__subtitulo">in {{ item.series }}</p>
+      </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="apresentacao__secao">
+    {% if category== "limited series" %}
+    <a class="apresentacao__subtitulo" href="{{ url_for('index') }}"><h2>Outstanding supporting actor in a {{ category }} or Movie</h2></a>
+    {% else %}
+    <a class="apresentacao__subtitulo" href="{{ url_for('index') }}"><h2>Outstanding Supporting Actor in a {{ category.capitalize() }} Series </h2></a>
+    {% endif %}
+    <div class="apresentacao__caixa caixa__img">
+      {% for item in data %}
+      {% if ("Supporting Actor" in item.subcategory) and (item.year == year) %}
+      <div class="apresentacao__caixa__link" href="{{ url_for('index') }}">
+        {% if item.is_winner == "Winner" %}
+        <p class="apresentacao__caixa__link__numero winner nominee">{{ item.is_winner }}</p>
+        <a href="{{ url_for('index') }}">
+          <img src="{{ item.img }}" class="apresentacao__caixa__link__imagem winner__img" alt="poster ">
+        </a>
+        {% else %}
+        <p class="apresentacao__caixa__link__numero nominee">{{ item.is_winner }}</p>
+        <a href="{{ url_for('index') }}">
+          <img src="{{ item.img }}" class="apresentacao__caixa__link__imagem" alt="poster ">
+        </a>
+        {% endif %}
+
+        <p class="apresentacao__caixa__link__titulo">{{ item.name }}</p>
+        <p class="apresentacao__caixa__link__subtitulo">{{ item.character }}</p>
+        <p class="apresentacao__caixa__link__subtitulo">in {{ item.series }}</p>
+      </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="apresentacao__secao">
+    {% if category== "limited series" %}
+    <a class="apresentacao__subtitulo" href="{{ url_for('index') }}"><h2>Outstanding directing for a {{ category }} or Movie</h2></a>
+    {% else %}
+    <a class="apresentacao__subtitulo" href="{{ url_for('index') }}"><h2>Outstanding Directing for a {{ category.capitalize() }} Series </h2></a>
+    {% endif %}
+    <div class="apresentacao__caixa caixa__img">
+      {% for item in data %}
+      {% if ("Directing" in item.subcategory) and (item.year == year) %}
+      <div class="apresentacao__caixa__link" href="{{ url_for('index') }}">
+        {% if item.is_winner == "Winner" %}
+        <p class="apresentacao__caixa__link__numero winner nominee">{{ item.is_winner }}</p>
+        <a href="{{ url_for('index') }}">
+          <img src="{{ item.img }}" class="apresentacao__caixa__link__imagem winner__img" alt="poster ">
+        </a>
+        {% else %}
+        <p class="apresentacao__caixa__link__numero nominee">{{ item.is_winner }}</p>
+        <a href="{{ url_for('index') }}">
+          <img src="{{ item.img }}" class="apresentacao__caixa__link__imagem" alt="poster ">
+        </a>
+        {% endif %}
+
+        <p class="apresentacao__caixa__link__titulo">{{ item.name }}</p>
+        <p class="apresentacao__caixa__link__subtitulo">{{ item.channel }}</p>
+      </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="apresentacao__secao">
+    {% if category== "limited series" %}
+    <a class="apresentacao__subtitulo" href="{{ url_for('index') }}"><h2>Outstanding Writing for a {{ category }} or Movie</h2></a>
+    {% else %}
+    <a class="apresentacao__subtitulo" href="{{ url_for('index') }}"><h2>Outstanding Writing for a {{ category.capitalize() }} Series </h2></a>
+    {% endif %}
+    <div class="apresentacao__caixa caixa__img">
+      {% for item in data %}
+      {% if ("Writing" in item.subcategory) and (item.year == year) %}
+      <div class="apresentacao__caixa__link" href="{{ url_for('index') }}">
+        {% if item.is_winner == "Winner" %}
+        <p class="apresentacao__caixa__link__numero winner nominee">{{ item.is_winner }}</p>
+        <a href="{{ url_for('index') }}">
+          <img src="{{ item.img }}" class="apresentacao__caixa__link__imagem winner__img" alt="poster ">
+        </a>
+        {% else %}
+        <p class="apresentacao__caixa__link__numero nominee">{{ item.is_winner }}</p>
+        <a href="{{ url_for('index') }}">
+          <img src="{{ item.img }}" class="apresentacao__caixa__link__imagem" alt="poster ">
+        </a>
+        {% endif %}
+
+        <p class="apresentacao__caixa__link__titulo">{{ item.name }}</p>
+        <p class="apresentacao__caixa__link__subtitulo">{{ item.channel }}</p>
+      </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+  </section>
+
+{% endblock %}

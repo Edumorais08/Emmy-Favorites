@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} Emmy Favorites {% endblock %}</title>
+    <link rel="stylesheet" {% block style %} href="{{ url_for('static', filename='css/style.css') }}" {% endblock %}>
+</head>
+<body>
+    <header>
+        <button id="menu-toggle">☰ Winners</button>
+        <a class="cabecalho__link" href="{{ url_for('index') }}">Home</a>
+        <nav id="navbar" class="hidden">
+            <ul class="lista__paginas">
+
+                {% for year in range(1949, 2025) %}
+                {% for category in ["comedy", "drama", "limited series"] %}
+                <li>
+                    <a class="cabecalho__menu__link
+                        {% if active_page == (year ~ '-' ~ category|replace(' ', '-')) %}
+                            active
+                        {% endif %}"
+                        href="{{ url_for('winners_by_year', year=year, category=category.replace(' ', '-')) }}">
+                        {% if category == "limited series" %}
+                        {{ year }}-Miniseries
+                        {% else %}
+                        {{ year }}-{{ category.capitalize() }}
+                        {% endif %}
+                    </a>
+                </li>
+                {% endfor %}
+                {% endfor %}
+            </ul>
+        </nav>
+    </header>
+    <main class="apresentacao" id="apresentacao">
+        {% block content %}{% endblock %}
+    </main>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <footer class="rodape">
+        <a href="#" class="link__seta"><img class="seta" src="{{ url_for('static', filename='img/seta.png') }}" alt="seta para o topo"></a>
+    </footer>
+</body>
+</html>
