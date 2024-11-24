@@ -55,6 +55,3 @@ def winners_by_year(year, category):
         data=filtred_data,
         active_page=active_page
     )
-
-
-app.run(debug=True)
