@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for, jsonify
+from flask import Flask, render_template
 import json
 
 app = Flask(__name__)
@@ -45,8 +45,6 @@ def winners_by_year(year, category):
     except FileNotFoundError:
         return f"Dados para o ano {year} não encontrados.", 404
     filtred_data = [item for item in data if item.get("category", "").lower() == category]
-
-    print(filtred_data)
 
     active_page = f"{year}-{category.replace(' ', '-').lower()}"
 
